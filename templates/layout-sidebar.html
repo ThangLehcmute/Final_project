@@ -1,0 +1,38 @@
+{% macro add_sidebar_item(path, icon, name) %}
+    {% if path|trim("/") == request.path.split("/")[1]|trim("upadate-") %}
+        <li class="nav-item active ">
+    {% else %}
+        <li class="nav-item ">
+    {% endif %}
+    {% if path == "/favorites" %}
+            <a class="nav-link" onclick="md.showNotification('top','center')">
+    {% else %}
+            <a class="nav-link" href="{{ path }}">
+    {% endif %}
+                <i class="material-icons">{{ icon }}</i>
+                <p>{{ name }}</p>
+            </a>
+        </li>
+{% endmacro %}
+
+{% macro sidebar() %}
+<div class="sidebar" data-color="purple" data-background-color="white" data-image="{{ url_for('static', filename='img/sidebar-1.jpg') }}">
+    
+  <div class="logo">
+    <a href="#" class="simple-text logo-normal">
+        Lập kế hoạch ăn uống
+      </a></div>
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        {{ add_sidebar_item("/meal-plan", "restaurant", "Kế hoạch ăn của bạn") }}
+        {{ add_sidebar_item("/favorites", "favorites", "Bữa ăn bạn yêu thích") }}
+        <!-- {{ add_sidebar_item("/map", "location_ons", "Prospects on Map") }} -->
+        <li class="nav-item active-pro ">
+          <a class="nav-link" href="/feedback">
+            <i class="material-icons">unarchive</i>
+            <p>Phản hồi của người dùng</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+{% endmacro %}

@@ -1,0 +1,72 @@
+{% extends "layout.html" %} {% block title %}Feedback{% endblock %} 
+{% block content %}
+{% if feedback %}
+    <div class="alert alert-success" role="alert">
+        Thank you! The <a href="#" class="alert-link">feedback has been submitted</a>. We will be in touch in the next two weeks.
+    </div>
+{% endif %}
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Phản hồi của người dùng với ứng dụng</h4>
+            <p class="card-category">Phản hồi của bạn rất được hoan nghênh! Chúng tôi sẽ liên lạc với bạn trong hai tuần tới.</p>
+          </div>
+          <div class="card-body">
+            <form class="form" method="post" action="/feedback">
+              <input type="hidden" name="feedback" value="some_feedback">
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Công ty</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Tên người dùng</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Địa chỉ Email</label>
+                    <input type="email" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Mức độ nghiêm trọng</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Loại vấn đề</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Phản hồi</label>
+                    <div class="form-group">
+                      <label class="bmd-label-floating"> Hãy chia sẻ thêm về trải nghiệm của bạn</label>
+                      <textarea class="form-control" rows="5"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary pull-right">Gửi phản hồi</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}  

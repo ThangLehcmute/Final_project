@@ -1,0 +1,70 @@
+{% macro login(city) %}
+<div class="modal fade" id="loginModal" tabindex="-1" role="">
+    <div class="modal-dialog modal-login" role="document">
+        <div class="modal-content">
+            <div class="card card-signup card-plain">
+                <div class="modal-body">
+                    <form class="form" method="post" action="/login">
+                        <div class="card-body">
+                            <!-- <div class="form-group bmd-form-group">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="material-icons">email</i></div>
+                                  </div>
+                                  <input type="email" class="form-control" placeholder="Email..." name="email"> 
+                                </div>
+                            </div> -->
+                            <div class="form-group bmd-form-group">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="material-icons">lock_outline</i></div>
+                                  </div>
+                                  <input type="password" placeholder="Nhập mật khẩu" name="password" class="form-control" pattern=".{4,}">
+                                </div>
+                            </div>
+                            <div class="form-group bmd-form-group">
+                              <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text"><i class="material-icons">date_range</i></div>
+                                </div>
+                                <input type="number" placeholder="Số ngày bạn muốn đề xuất bữa ăn" name="days" class="form-control" max=30 min=1>
+                              </div>
+                              <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text"><i class="material-icons">date_range</i></div>
+                                </div>
+                                <input type="number" placeholder="Nhập số tuổi người dùng" name="age" class="form-control" max=80 min=1>
+                              </div>
+                              <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text"><i class="material-icons">date_range</i></div>
+                                </div>
+                                <input type="number" placeholder="Nhập chiều cao" name="height" class="form-control" max=200 min=1>
+                              </div>
+                              <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text"><i class="material-icons">date_range</i></div>
+                                </div>
+                                <input type="number" placeholder="Nhập cân nặng" name="weight" class="form-control" max=200 min=1>
+                              </div>
+                              <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text"><i class="material-icons">date_range</i></div>
+                                </div>
+                                <input type="number" placeholder="Nhập giới tính(nam:1, nữ:0)" name="vegtarian-non" class="form-control" max=1 min=0>
+                              </div>
+                              </div>
+                                <input type="number" placeholder="Mục tiêu cân nặng(nếu có)" name="target-weight" class="form-control" max=100 min=0>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <button type="submit" class="btn btn-primary btn-lg center">Đăng nhập</button>
+                        </div>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+
+  <meta property="og:image" content="{{ url_for('static', filename='img/meal-icon.png') }}" />
+  <meta property="og:description" content="This Meal Planner helps you to plan healthy and stable meals for every day"/>
+  <meta property="og:url" content="http://meal.riko.io/" />
+  <meta property="og:title" content="Meal Planner - For Your Healthier and Easier Life" />
+
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ url_for('static', filename='img/meal-icon.png') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Meal Planner
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="{{ url_for('static', filename='css/dashboard.css') }}" rel="stylesheet" />
+</head>
+
+{% from "layout-footer.html" import footer %}
+{% from "layout-scripts.html" import scripts %}
+{% from "login.html" import login %}
+{% if wrong_password %}
+    <div class="alert alert-danger" role="alert" style="color:black;">
+        Your password was incorrect. Please check once more... A hint: where do you work?
+    </div>
+{% endif %}
+<body class="">
+  <div class="wrapper">
+    
+    <div class="main-panel">
+      <div class="content">
+        <div class="col-md-10">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Chào mừng bạn đến với ứng dụng đề xuất bữa ăn</h4>
+              <p class="card-category">Hãy đến với ứng dụng của chúng tôi để có bữa ăn nhanh chóng, dễ dàng, và phù hợp với sức khỏe</p>
+            </div>
+            <div class="card-body">
+              <form class="form" method="post" action="/login">
+                <div class="row text-center">
+                  <div class="col-lg-6" style="float:none;margin:auto;">
+                    <button  id="login" type="button" class="btn btn-primary center-block" data-toggle="modal" data-target="#loginModal">
+                      <i class="material-icons">restaurant</i> Đăng nhập
+                    </button>
+                  </div>
+                </div>
+                {{login()}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{scripts()}}
+  <script>
+    var oslo = document.getElementById("login");
+    oslo.addEventListener("click", function () {
+      $('form').append('<input type="hidden" name="login" value="start" />');
+    });
+  </script>
+</body>
+
+</html>
